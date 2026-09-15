@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Caso04actividadclase.Models;
 
@@ -17,5 +18,6 @@ public partial class Pago
 
     public string Estadopago { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual Reserva IdreservaNavigation { get; set; } = null!;
 }

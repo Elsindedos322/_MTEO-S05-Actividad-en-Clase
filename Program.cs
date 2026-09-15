@@ -2,11 +2,18 @@ using Microsoft.EntityFrameworkCore;
 using Caso04actividadclase.interfaces;
 using Caso04actividadclase.Repositories;
 using Caso04actividadclase.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. Agregar servicios al contenedor
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler =
+            ReferenceHandler.IgnoreCycles;
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

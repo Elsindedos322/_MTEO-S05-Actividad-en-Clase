@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Caso04actividadclase.Models;
 
@@ -15,7 +16,9 @@ public partial class Proveedore
 
     public decimal? Calificacionpromedio { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Evaluacionesproveedor> Evaluacionesproveedors { get; set; } = new List<Evaluacionesproveedor>();
 
+    [JsonIgnore]
     public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
 }

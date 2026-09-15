@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Caso04actividadclase.Models;
 
@@ -21,7 +22,9 @@ public partial class Paquetesturistico
 
     public bool? Estado { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 
+    [JsonIgnore]
     public virtual ICollection<Servicio> Idservicios { get; set; } = new List<Servicio>();
 }
