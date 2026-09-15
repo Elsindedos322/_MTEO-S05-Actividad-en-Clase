@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Caso04actividadclase.Models;
 
@@ -15,7 +16,9 @@ public partial class Servicio
 
     public int Capacidaddisponible { get; set; }
 
+    [JsonIgnore]
     public virtual Proveedore IdproveedorNavigation { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<Paquetesturistico> Idpaquetes { get; set; } = new List<Paquetesturistico>();
 }
